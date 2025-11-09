@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Leonek — Clicker skradankowy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <h1>🧻 Leonek</h1>
+      <nav>
+        <button id="btn-home" class="ghost">Ekran główny</button>
+        <button id="btn-settings" class="ghost">Ustawienia</button>
+        <button id="btn-export" class="ghost">Eksport</button>
+        <button id="btn-import" class="ghost">Import</button>
+      </nav>
+    </header>
+
+    <!-- HOME / PROFILE SELECT -->
+    <section id="screen-home" class="screen visible">
+      <div class="card home-card">
+        <h2>Wybierz profil</h2>
+        <div id="profiles-list" class="profiles"></div>
+        <div class="row new-profile">
+          <input id="new-nick" type="text" placeholder="Nowy nick…" maxlength="20" />
+          <button id="create-profile">Stwórz profil</button>
+        </div>
+        <p class="hint">Profil to tylko nick. Wszystko zapisuje się w przeglądarce (localStorage).</p>
+      </div>
+    </section>
+
+    <!-- GAME -->
+    <section id="screen-game" class="screen">
+      <div class="hud">
+        <div class="left">
+          <span class="pill">👤 <strong id="hud-nick">-</strong></span>
+          <span class="pill">🧻 Chusteczki: <strong id="hud-tissues">0</strong></span>
+          <span class="pill danger" id="risk-pill">💢 Ryzyko: <strong id="hud-risk">0%</strong></span>
+          <span class="pill watcher" id="watcher-pill" hidden>👀 Ktoś patrzy!</span>
+        </div>
+        <div class="right">
+          <span class="pill">🍗 Głód: <strong id="stat-hunger">0</strong></span>
+          <span class="pill">🥱 Znudzenie: <strong id="stat-boredom">0</strong></span>
+          <span class="pill">💧 Pragnienie: <strong id="stat-thirst">0</strong></span>
+        </div>
+      </div>
+
+      <div class="playfield">
+        <div class="bg" id="bg"></div>
+        <div class="actor dog" id="dog" title="Leonek">🐶</div>
+        <button id="btn-pick" class="cta">ZBIERAJ 🧻</button>
+        <div class="tissue" id="tissue" title="Chusteczka">🧻</div>
+        <div class="watcher" id="watcher" title="Ktoś patrzy">👀</div>
+      </div>
+
+      <div class="store">
+        <h3>Sklep (wydaj chusteczki)</h3>
+        <div class="store-grid">
+          <button class="store-item" data-type="food">
+            <div class="emoji">🍗</div>
+            <div class="label">Jedzonko</div>
+            <div class="cost">Koszt: 10</div>
+          </button>
+          <button class="store-item" data-type="toy">
+            <div class="emoji">🧸</div>
+            <div class="label">Zabawka</div>
+            <div class="cost">Koszt: 8</div>
+          </button>
+          <button class="store-item" data-type="water">
+            <div class="emoji">🥤</div>
+            <div class="label">Woda</div>
+            <div class="cost">Koszt: 6</div>
+          </button>
+        </div>
+        <p class="hint">Wskaźniki rosną z czasem. Utrzymaj je jak najniżej! Gdy <strong>Ryzyko</strong> osiąga 100%, zostajesz „przyłapany” i tracisz trochę chusteczek.</p>
+      </div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section id="screen-settings" class="screen">
+      <div class="card">
+        <h2>Ustawienia i grafiki</h2>
+        <p>Domyślnie gra używa emoji. Możesz podać linki do grafik z internetu (tło, piesek, chusteczka, obserwator). Najlepiej użyj własnych obrazków lub darmowych (np. własny hosting, Pixabay, itp.).</p>
+        <div class="grid2">
+          <label>URL tła
+            <input id="asset-bg" type="url" placeholder="https://…/background.jpg" />
+          </label>
+          <label>URL pieska
+            <input id="asset-dog" type="url" placeholder="https://…/dog.png" />
+          </label>
+          <label>URL chusteczki
+            <input id="asset-tissue" type="url" placeholder="https://…/tissue.png" />
+          </label>
+          <label>URL obserwatora
+            <input id="asset-watcher" type="url" placeholder="https://…/eyes.png" />
+          </label>
+        </div>
+        <div class="row">
+          <button id="save-assets">Zapisz grafiki</button>
+          <button id="reset-assets" class="ghost">Przywróć emoji</button>
+        </div>
+      </div>
+    </section>
+
+    <dialog id="import-dialog">
+      <form method="dialog">
+        <h3>Import danych</h3>
+        <textarea id="import-json" rows="8" placeholder='Wklej tu JSON…'></textarea>
+        <menu>
+          <button value="cancel" class="ghost">Anuluj</button>
+          <button id="do-import" value="default">Importuj</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <footer class="footer">
+      <span>Leonek © 2025 — minimalny clicker dla znajomych • zapisy w przeglądarce</span>
+    </footer>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
