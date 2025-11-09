@@ -1,0 +1,28 @@
+*{box-sizing:border-box}html,body{height:100%}
+body{margin:0;background:#0e0f12;color:#eef3fb;font-family:'Nunito',system-ui,Segoe UI,Roboto,Arial,sans-serif}
+h1{margin:16px 12px 8px;font-size:28px}
+h2{margin:0 0 8px;font-size:18px}
+#app{max-width:520px;margin:0 auto;padding:0 10px 24px}
+.card{background:#141826;border:1px solid #22283a;border-radius:16px;padding:12px 12px 14px;margin:12px 0;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.hint{color:#9fb0c3;font-size:13px;margin:6px 0 0}
+.row{display:flex;gap:8px;margin-top:8px}
+input{flex:1;padding:12px;border-radius:12px;border:1px solid #27314a;background:#0b0f1a;color:#eef3fb;outline:none}
+button{padding:12px 14px;border-radius:12px;border:none;background:#72f0c2;color:#04151f;font-weight:900;cursor:pointer}
+button.ghost{background:#242b40;color:#eef3fb}
+button:active{transform:translateY(1px)}
+.screen{display:none}
+.screen.active{display:block}
+.profiles{display:flex;flex-wrap:wrap;gap:8px}
+.profiles button{background:#242b40;color:#eef3fb}
+.small{display:block;font-size:12px;color:#9fb0c3}
+
+.top{display:flex;align-items:center;gap:8px;position:sticky;top:0;padding:10px;background:#0c0f16;border-bottom:1px solid #1e2334;z-index:5}
+.pill{background:#1f263a;border-radius:999px;padding:6px 10px;font-weight:900}
+.vital{background:#1f2a2a}
+.locbar{display:flex;gap:6px;padding:10px}
+.loc-btn{flex:1}
+.chain{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:13px}
+#stageWrap{position:relative;border:1px solid #1e2334;border-radius:16px;overflow:hidden}
+#stage{width:100%;height:auto;touch-action:none;background:linear-gradient(#0a0e16,#0b1220)}
+.tip{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);background:rgba(0,0,0,.5);padding:6px 10px;border-radius:999px;font-size:12px}
+.scoreboard .item{display:flex;justify-content:space-between;padding:8px;border:1px solid #22304a;border-radius:10px;margin:4px 0;background:#111628}
